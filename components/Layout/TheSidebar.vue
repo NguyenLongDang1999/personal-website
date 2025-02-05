@@ -39,6 +39,8 @@
                 <ul class="flex gap-3">
                     <li>
                         <UButton
+                            to="https://www.linkedin.com/in/dang-nguyen-long/"
+                            target="_blank"
                             icon="i-lucide-linkedin"
                             variant="soft"
                             size="lg"
@@ -47,6 +49,8 @@
 
                     <li>
                         <UButton
+                            to="https://www.linkedin.com/in/dang-nguyen-long/"
+                            target="_blank"
                             icon="i-lucide-twitter"
                             variant="soft"
                             size="lg"
@@ -55,6 +59,8 @@
 
                     <li>
                         <UButton
+                            to="https://github.com/nguyenlongdang1999/"
+                            target="_blank"
                             icon="i-lucide-github"
                             variant="soft"
                             size="lg"
@@ -63,6 +69,8 @@
 
                     <li>
                         <UButton
+                            to="https://www.facebook.com/nguyen.long.ang.2024/"
+                            target="_blank"
                             icon="i-lucide-facebook"
                             variant="soft"
                             size="lg"
