@@ -1,3 +1,4 @@
 <template>
     <SectionHome />
+    <SectionAbout />
 </template>

@@ -1,11 +1,11 @@
 export const navigation = [
     {
-        to: '/',
+        to: '#home',
         title: 'Home',
         icon: 'i-lucide-house'
     },
     {
-        to: '/about',
+        to: '#about',
         title: 'About',
         icon: 'i-lucide-user'
     },

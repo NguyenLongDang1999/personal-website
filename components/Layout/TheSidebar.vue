@@ -16,7 +16,7 @@
                         :key="nav.to"
                     >
                         <UButton
-                            :to="nav.to"
+                            :to="{ hash: nav.to }"
                             :icon="nav.icon"
                             :label="nav.title"
                             :ui="{

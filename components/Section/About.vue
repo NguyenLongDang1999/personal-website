@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-[url(/bg-image.webp)] bg-center bg-cover bg-no-repeat flex h-screen" id="home">
+    <section class="flex h-screen" id="about">
         <UContainer>
             <div class="flex flex-col justify-center items-start gap-4 h-full">
                 <span class="uppercase mb-3 font-bold text-xl">Hello</span>
