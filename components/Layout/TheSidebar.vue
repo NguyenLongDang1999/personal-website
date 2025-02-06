@@ -5,6 +5,7 @@ const route = useRoute()
 const router = useRouter()
 
 // ** Data
+let hasScrolled = false
 const activeSection = ref<string>('')
 
 // ** Computed
@@ -29,7 +30,7 @@ const linkUrl = computed(() => [
 
 // ** Methods
 const updateHash = (hash: string) => {
-    if (route.hash !== hash) {
+    if (hasScrolled && route.hash !== hash) {
         router.replace({ hash })
     }
 }
@@ -41,9 +42,10 @@ onMounted(() => {
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    const hashLink = `#${entry.target.id}`;
-                    activeSection.value = hashLink;
-                    updateHash(hashLink);
+                    const hashLink = `#${entry.target.id}`
+
+                    activeSection.value = hashLink
+                    updateHash(hashLink)
                 }
             });
         },
@@ -51,13 +53,21 @@ onMounted(() => {
             root: null,
             threshold: 0.5
         }
-    );
+    )
 
-    sections.forEach((section) => observer.observe(section));
+    sections.forEach((section) => observer.observe(section))
+
+    const onFirstScroll = () => {
+        hasScrolled = true
+        window.removeEventListener('scroll', onFirstScroll)
+    }
+
+    window.addEventListener('scroll', onFirstScroll, { once: true })
   
     onBeforeUnmount(() => {
-        observer.disconnect();
-    });
+        observer.disconnect()
+        window.removeEventListener('scroll', onFirstScroll)
+    })
 });
 </script>
 
