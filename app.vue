@@ -11,7 +11,7 @@ useServerHead({
 useServerSeoMeta({
     robots: 'index, follow',
     author: config.fullname,
-    title: 'NDLab - ' + config.fullname
+    title: `NDLab - i’m ${config.fullname}`
 })
 </script>
 
