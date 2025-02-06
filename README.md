@@ -1,75 +1,61 @@
-# Nuxt Minimal Starter
+# Personal Website - Nuxt 3
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is the source code for a personal website built with [Nuxt 3](https://nuxt.com/) for displaying personal information, blogs, or portfolios.
 
-## Setup
+## 🚀 Technologies Used
+- [Nuxt 3](https://nuxt.com/) - Modern Vue framework
+- [Vue 3](https://vuejs.org/) - Core framework
+- [Vite](https://vitejs.dev/) - Fast build tool
+- [Tailwind CSS](https://tailwindcss.com/) - Flexible styling
+- [Nuxt Content](https://content.nuxt.com/) (optional) - Manage Markdown-based content
 
-Make sure to install dependencies:
-
+## 📦 Installation and Running the Project
+### 1. Clone the Repository
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+git clone https://github.com/NguyenLongDang1999/personal-website.git
+cd personal-website
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
+### 2. Install Dependencies
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+bun install  # or yarn install
 ```
 
-## Production
-
-Build the application for production:
-
+### 3. Run Development Server
 ```bash
-# npm
-npm run build
+bun run dev  # or yarn dev
+```
+Then, visit `http://localhost:3000` in your browser.
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+## 📂 Project Structure
+```
+├── public/         # Static files (favicon, images, etc.)
+├── assets/         # CSS, fonts, images
+├── components/     # Reusable components
+├── layouts/        # Shared layouts
+├── pages/          # Main pages (auto-routed by Nuxt)
+├── server/         # Backend API (if using Nitro)
+├── content/        # Markdown content (if using Nuxt Content)
+├── utils/          # Utility functions
+├── nuxt.config.ts  # Nuxt configuration
+└── package.json    # Dependencies and scripts
 ```
 
-Locally preview production build:
+## 🌍 Deployment
+You can deploy the website on various platforms such as:
+- [Vercel](https://vercel.com/)
+- [Netlify](https://www.netlify.com/)
+- [Cloudflare Pages](https://pages.cloudflare.com/)
+- Private VPS with [PM2](https://pm2.keymetrics.io/)
 
+Example deployment with Vercel:
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+npm i -g vercel
+vercel
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 📜 License
+This source code is released under the MIT license. See the [LICENSE](LICENSE) file for details.
+
+---
+Thank you for visiting! 🚀 If you have any questions, feel free to contact me via email or open an issue on GitHub.
