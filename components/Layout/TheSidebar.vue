@@ -47,7 +47,7 @@ onMounted(() => {
                     activeSection.value = hashLink
                     updateHash(hashLink)
                 }
-            });
+            })
         },
         {
             root: null,
@@ -68,7 +68,21 @@ onMounted(() => {
         observer.disconnect()
         window.removeEventListener('scroll', onFirstScroll)
     })
-});
+})
+
+const scrollToSection = (hash: string) => {
+    const section = document.getElementById(hash.replace('#', ''))
+
+    if (section) {
+        hasScrolled = false
+        section.scrollIntoView({ behavior: 'smooth' })
+
+        setTimeout(() => {
+            hasScrolled = true
+            updateHash(hash)
+        }, 500)
+    }
+}
 </script>
 
 <template>
@@ -89,7 +103,6 @@ onMounted(() => {
                         :key="nav.to"
                     >
                         <UButton
-                            :to="{ hash: nav.to }"
                             :icon="nav.icon"
                             :label="nav.title"
                             :ui="{
@@ -99,6 +112,7 @@ onMounted(() => {
                             size="xl"
                             color="info"
                             class="flex items-center gap-2"
+                            @click.prevent="scrollToSection(nav.to)"
                         />
                     </li>
                 </ul>
