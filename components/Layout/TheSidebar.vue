@@ -86,58 +86,58 @@ const scrollToSection = (hash: string) => {
 </script>
 
 <template>
-    <header class="fixed h-screen border-r-2 border-gray-200 xl:w-2xs xl:block hidden top-0 bg-[var(--ui-bg-elevated)]">
-        <div class="flex flex-col items-center gap-6 h-full">
-            <div class="flex flex-col justify-center items-center mt-8">
-                <UAvatar
-                    :src="config.avatarSrc"
-                    :alt="config.fullname"
-                    class="size-52 border-5 border-gray-200"
-                />
-            </div>
-
-            <nav>
-                <ul class="flex flex-col gap-2">
-                    <li
-                        v-for="nav in navigation"
-                        :key="nav.to"
-                    >
-                        <UButton
-                            :icon="nav.icon"
-                            :label="nav.title"
-                            :ui="{
-                                label:`font-bold ${activeSection === nav.to ? 'text-[var(--ui-bg)]' : 'text-[var(--ui-text)]'}`
-                            }"
-                            :variant="activeSection === nav.to ? 'solid' : 'ghost'"
-                            size="xl"
-                            color="info"
-                            class="flex items-center gap-2"
-                            @click.prevent="scrollToSection(nav.to)"
-                        />
-                    </li>
-                </ul>
-            </nav>
-
-            <USeparator size="lg" />
-
-            <div class="flex flex-col items-center gap-4">
-                <p class="font-bold text-lg">Find With Me</p>
-
-                <ul class="flex gap-3">
-                    <li
-                        v-for="(link, index) in linkUrl"
-                        :key="index"
-                    >
-                        <UButton
-                            :to="link.url"
-                            :icon="link.icon"
-                            target="_blank"
-                            variant="soft"
-                            size="lg"
-                        />
-                    </li>
-                </ul>
-            </div>
+    <div class="flex flex-col items-center gap-6 h-full">
+        <div class="flex flex-col justify-center items-center mt-8">
+            <UAvatar
+                :src="config.avatarSrc"
+                :alt="config.fullname"
+                class="size-42 border-5 border-gray-200"
+            />
         </div>
-    </header>
+
+        <nav>
+            <ul class="flex flex-col gap-2">
+                <li
+                    v-for="nav in navigation"
+                    :key="nav.to"
+                >
+                    <UButton
+                        :icon="nav.icon"
+                        :label="nav.title"
+                        :ui="{
+                            label:`font-bold ${activeSection === nav.to ? 'text-[var(--ui-bg)]' : 'text-[var(--ui-text)]'}`,
+                            base: 'justify-start'
+                        }"
+                        :variant="activeSection === nav.to ? 'solid' : 'ghost'"
+                        size="xl"
+                        color="info"
+                        block
+                        class="flex items-center gap-2 w-42"
+                        @click.prevent="scrollToSection(nav.to)"
+                    />
+                </li>
+            </ul>
+        </nav>
+
+        <USeparator size="lg" />
+
+        <nav class="flex flex-col items-center gap-4">
+            <p class="font-bold text-lg">Find With Me</p>
+
+            <ul class="flex gap-3">
+                <li
+                    v-for="(link, index) in linkUrl"
+                    :key="index"
+                >
+                    <UButton
+                        :to="link.url"
+                        :icon="link.icon"
+                        target="_blank"
+                        variant="soft"
+                        size="lg"
+                    />
+                </li>
+            </ul>
+        </nav>
+    </div>
 </template>
