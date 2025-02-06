@@ -2,9 +2,12 @@
 
 // ** useHooks
 const route = useRoute()
+const router = useRouter()
+
+// ** Data
+const activeSection = ref<string>('')
 
 // ** Computed
-const routeHash = computed(() => route.hash || ROUTE_HASH.HOME)
 const linkUrl = computed(() => [
     {
         url: config.linkedin,
@@ -23,6 +26,39 @@ const linkUrl = computed(() => [
         icon: 'i-lucide-facebook'
     }
 ])
+
+// ** Methods
+const updateHash = (hash: string) => {
+    if (route.hash !== hash) {
+        router.replace({ hash })
+    }
+}
+
+onMounted(() => {
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const hashLink = `#${entry.target.id}`;
+                    activeSection.value = hashLink;
+                    updateHash(hashLink);
+                }
+            });
+        },
+        {
+            root: null,
+            threshold: 0.5
+        }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  
+    onBeforeUnmount(() => {
+        observer.disconnect();
+    });
+});
 </script>
 
 <template>
@@ -47,9 +83,9 @@ const linkUrl = computed(() => [
                             :icon="nav.icon"
                             :label="nav.title"
                             :ui="{
-                                label:`font-bold ${routeHash === nav.to ? 'text-[var(--ui-bg)]' : 'text-[var(--ui-text)]'}`
+                                label:`font-bold ${activeSection === nav.to ? 'text-[var(--ui-bg)]' : 'text-[var(--ui-text)]'}`
                             }"
-                            :variant="routeHash === nav.to ? 'solid' : 'ghost'"
+                            :variant="activeSection === nav.to ? 'solid' : 'ghost'"
                             size="xl"
                             color="info"
                             class="flex items-center gap-2"
