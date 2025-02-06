@@ -1,3 +1,30 @@
+<script setup lang="ts">
+
+// ** useHooks
+const route = useRoute()
+
+// ** Computed
+const routeHash = computed(() => route.hash || ROUTE_HASH.HOME)
+const linkUrl = computed(() => [
+    {
+        url: config.linkedin,
+        icon: 'i-lucide-linkedin'
+    },
+    {
+        url: config.twitter,
+        icon: 'i-lucide-twitter'
+    },
+    {
+        url: config.github,
+        icon: 'i-lucide-github'
+    },
+    {
+        url: config.facebook,
+        icon: 'i-lucide-facebook'
+    }
+])
+</script>
+
 <template>
     <header class="fixed h-screen border-r-2 border-gray-200 w-2xs top-0 bg-[var(--ui-bg-elevated)]">
         <div class="flex flex-col items-center gap-6 h-full">
@@ -20,12 +47,12 @@
                             :icon="nav.icon"
                             :label="nav.title"
                             :ui="{
-                                label:'font-bold text-[var(--ui-text)]'
+                                label:`font-bold ${routeHash === nav.to ? 'text-[var(--ui-bg)]' : 'text-[var(--ui-text)]'}`
                             }"
+                            :variant="routeHash === nav.to ? 'solid' : 'ghost'"
                             size="xl"
                             color="info"
                             class="flex items-center gap-2"
-                            variant="ghost"
                         />
                     </li>
                 </ul>
@@ -37,41 +64,14 @@
                 <p class="font-bold text-lg">Find With Me</p>
 
                 <ul class="flex gap-3">
-                    <li>
+                    <li
+                        v-for="(link, index) in linkUrl"
+                        :key="index"
+                    >
                         <UButton
-                            to="https://www.linkedin.com/in/dang-nguyen-long/"
+                            :to="link.url"
+                            :icon="link.icon"
                             target="_blank"
-                            icon="i-lucide-linkedin"
-                            variant="soft"
-                            size="lg"
-                        />
-                    </li>
-
-                    <li>
-                        <UButton
-                            to="https://www.linkedin.com/in/dang-nguyen-long/"
-                            target="_blank"
-                            icon="i-lucide-twitter"
-                            variant="soft"
-                            size="lg"
-                        />
-                    </li>
-
-                    <li>
-                        <UButton
-                            to="https://github.com/nguyenlongdang1999/"
-                            target="_blank"
-                            icon="i-lucide-github"
-                            variant="soft"
-                            size="lg"
-                        />
-                    </li>
-
-                    <li>
-                        <UButton
-                            to="https://www.facebook.com/nguyen.long.ang.2024/"
-                            target="_blank"
-                            icon="i-lucide-facebook"
                             variant="soft"
                             size="lg"
                         />

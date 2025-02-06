@@ -1,36 +1,36 @@
 export const navigation = [
     {
-        to: '#home',
+        to: ROUTE_HASH.HOME,
         title: 'Home',
         icon: 'i-lucide-house'
     },
     {
-        to: '#about',
+        to: ROUTE_HASH.ABOUT,
         title: 'About',
         icon: 'i-lucide-user'
     },
     {
-        to: '/project',
+        to: ROUTE_HASH.PROJECTS,
         title: 'Projects',
         icon: 'i-lucide-rocket'
     },
     {
-        to: '/skills',
+        to: ROUTE_HASH.SKILLS,
         title: 'Skills',
         icon: 'i-lucide-pencil-ruler'
     },
     {
-        to: '/fun-facts',
+        to: ROUTE_HASH.FUN_FACTS,
         title: 'Fun Facts',
         icon: 'i-lucide-camera'
     },
     {
-        to: '/blogs',
+        to: ROUTE_HASH.BLOGS,
         title: 'Blogs',
         icon: 'i-lucide-notebook-pen'
     },
     {
-        to: '/contact',
+        to: ROUTE_HASH.CONTACT,
         title: 'Contact',
         icon: 'i-lucide-mailbox'
     }
