@@ -3,4 +3,5 @@
     <SectionAbout />
     <SectionProjects />
     <SectionSkills />
+    <SectionContact />
 </template>
