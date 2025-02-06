@@ -86,7 +86,7 @@ const scrollToSection = (hash: string) => {
 </script>
 
 <template>
-    <header class="fixed h-screen border-r-2 border-gray-200 w-2xs top-0 bg-[var(--ui-bg-elevated)]">
+    <header class="fixed h-screen border-r-2 border-gray-200 xl:w-2xs xl:block hidden top-0 bg-[var(--ui-bg-elevated)]">
         <div class="flex flex-col items-center gap-6 h-full">
             <div class="flex flex-col justify-center items-center mt-8">
                 <UAvatar

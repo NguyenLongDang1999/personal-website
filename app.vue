@@ -41,6 +41,10 @@ useServerSeoMeta({
   --font-sans: 'Quicksand', sans-serif;
 }
 
+:root {
+  --ui-container: var(--container-6xl);
+}
+
 .nuxt-ui-scrollbars ::-webkit-scrollbar {
     background-color: transparent;
     height: .6em;

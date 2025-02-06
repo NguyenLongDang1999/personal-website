@@ -16,6 +16,7 @@ defineProps<Props>()
     >
         <UInput
             class="w-full"
+            size="lg"
             v-bind="$attrs"
         />
     </UFormField>

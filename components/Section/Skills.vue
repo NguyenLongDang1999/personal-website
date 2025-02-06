@@ -96,13 +96,13 @@ const skills = [
 </script>
 
 <template>
-    <section class="flex items-center h-screen" id="skills">
-        <UContainer>
+    <section class="flex w-full items-center md:h-screen" id="skills">
+        <UContainer class="w-full">
             <div class="grid grid-cols-12 gap-4">
                 <div
                     v-for="skill in skills"
                     :key="skill.title"
-                    class="col-span-2"
+                    class="lg:col-span-2 md:col-span-3 sm:col-span-4 col-span-6"
                 >
                     <UCard class="group hover:ring hover:ring-[var(--ui-primary)] transition-all">
                         <NuxtLink
