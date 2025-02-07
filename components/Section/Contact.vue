@@ -18,6 +18,41 @@ const information = [
         content: '0389747179'
     }
 ]
+
+const state = reactive<Partial<IContactForm>>({})
+
+// ** useHooks
+const mail = useMail()
+
+// ** Methods
+const onSubmit = async () => {
+    try {
+        await mail.send({
+            from: state.email,
+            subject: state.subject,
+            text: `
+Hello ${config.fullname},
+
+You have received a new message from your website contact form (${config.domain}).
+
+📌 User Details:
+- Name: ${state.name}
+- Phone Number: ${state.phone || 'Not provided'}
+- Email: ${state.email}
+- Subject: ${state.subject}
+
+💬 Message:  
+${state.message}
+
+Please respond to the user as soon as possible.
+
+Best regards
+            `,
+        })
+    }
+    catch {}
+    finally {}
+}
 </script>
 
 <template>
@@ -63,41 +98,50 @@ const information = [
                             <p>"I’m always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out!"</p>
                         </div>
 
-                        <UForm :schema="{}" :state="{}">
+                        <UForm
+                            :schema="contactFormSchema"
+                            :state="state"
+                            @submit="onSubmit"
+                        >
                             <div class="grid grid-cols-12 gap-4">
                                 <div class="col-span-12">
                                     <FormInput
-                                        label="Your Name"
+                                        v-model="state.name"
+                                        :label="contactLabel.name"
                                         name="name"
                                     />
                                 </div>
 
                                 <div class="col-span-12">
                                     <FormInput
-                                        label="Phone Number"
+                                        v-model="state.phone"
+                                        :label="contactLabel.phone"
                                         name="phone"
                                     />
                                 </div>
 
                                 <div class="col-span-12">
                                     <FormInput
-                                        label="Your Email"
+                                        v-model="state.email"
+                                        :label="contactLabel.email"
                                         name="email"
                                     />
                                 </div>
 
                                 <div class="col-span-12">
                                     <FormInput
-                                        label="Subject"
+                                        v-model="state.subject"
+                                        :label="contactLabel.subject"
                                         name="subject"
                                     />
                                 </div>
 
                                 <div class="col-span-12">
                                     <FormTextarea
-                                        label="Your Message"
-                                        name="message"
+                                        v-model="state.message"
+                                        :label="contactLabel.message"
                                         :rows="5"
+                                        name="message"
                                     />
                                 </div>
 
@@ -106,6 +150,7 @@ const information = [
                                         type="submit"
                                         size="lg"
                                         icon="i-lucide-send"
+                                        loading-auto
                                     >
                                         Send
                                     </UButton>
