@@ -7,10 +7,6 @@ interface Props {
 
 const props = defineProps<Props>()
 
-// ** useHooks
-const route = useRoute()
-const router = useRouter()
-
 // ** Data
 let hasScrolled = false
 const activeSection = ref<string>('')
@@ -36,12 +32,6 @@ const linkUrl = computed(() => [
 ])
 
 // ** Methods
-const updateHash = (hash: string) => {
-    if (hasScrolled && route.hash !== hash) {
-        router.replace({ hash })
-    }
-}
-
 onMounted(() => {
     const sections = document.querySelectorAll('section');
 
@@ -49,10 +39,7 @@ onMounted(() => {
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    const hashLink = `#${entry.target.id}`
-
-                    activeSection.value = hashLink
-                    updateHash(hashLink)
+                    activeSection.value = `#${entry.target.id}`
                 }
             })
         },
@@ -87,7 +74,6 @@ const scrollToSection = (hash: string) => {
 
         setTimeout(() => {
             hasScrolled = true
-            updateHash(hash)
         }, 500)
     }
 }

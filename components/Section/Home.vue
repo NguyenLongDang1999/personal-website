@@ -1,3 +1,23 @@
+<script setup lang="ts">
+
+// ** Data
+let hasScrolled = false
+
+// ** Methods
+const scrollToSection = (hash: string) => {
+    const section = document.getElementById(hash.replace('#', ''))
+
+    if (section) {
+        hasScrolled = false
+        section.scrollIntoView({ behavior: 'smooth' })
+
+        setTimeout(() => {
+            hasScrolled = true
+        }, 500)
+    }
+}
+</script>
+
 <template>
     <section class="bg-[url(/bg-image.webp)] bg-center bg-cover bg-no-repeat flex h-screen" id="home">
         <UContainer>
@@ -17,6 +37,7 @@
                     size="xl"
                     class="mt-4"
                     variant="outline"
+                    @click="scrollToSection(ROUTE_HASH.CONTACT)"
                 >
                     Hire Me
                 </UButton>
