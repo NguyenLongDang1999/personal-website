@@ -1,5 +1,12 @@
 <script setup lang="ts">
 
+// ** Props & Emits
+interface Props {
+    close?: () => void
+}
+
+const props = defineProps<Props>()
+
 // ** useHooks
 const route = useRoute()
 const router = useRouter()
@@ -76,6 +83,7 @@ const scrollToSection = (hash: string) => {
     if (section) {
         hasScrolled = false
         section.scrollIntoView({ behavior: 'smooth' })
+        if (props.close) props.close()
 
         setTimeout(() => {
             hasScrolled = true
@@ -86,7 +94,16 @@ const scrollToSection = (hash: string) => {
 </script>
 
 <template>
-    <div class="flex flex-col items-center gap-6 h-full">
+    <div class="flex flex-col items-center gap-6 h-full overflow-y-auto relative">
+        <UButton
+            v-if="close"
+            icon="i-lucide-x"
+            variant="soft"
+            color="neutral"
+            class="absolute right-3 top-3"
+            @click="close"
+        />
+
         <div class="flex flex-col justify-center items-center mt-8">
             <UAvatar
                 :src="config.avatarSrc"
