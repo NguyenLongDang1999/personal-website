@@ -21,13 +21,18 @@ const information = [
 </script>
 
 <template>
-    <section class="flex items-center md:h-screen" id="contact">
+    <section class="flex flex-col py-24" id="contact">
+        <BaseTitle
+            title="Contact"
+            subtitle="Get in Touch"
+        />
+
         <UContainer class="w-full">
-            <div class="flex mb-4 gap-4">
+            <div class="grid grid-cols-12 mb-4 gap-4">
                 <UCard
                     v-for="info in information"
                     :key="info.title"
-                    class="w-1/3 h-auto hover:ring hover:ring-[var(--ui-primary)] transition-all"
+                    class="md:col-span-4 sm:col-span-6 col-span-12 hover:ring hover:ring-[var(--ui-primary)] transition-all"
                 >
                     <div class="flex flex-col jusitfy-center items-center">
                         <UButton
@@ -43,8 +48,16 @@ const information = [
             </div>
 
             <UCard class="hover:ring hover:ring-[var(--ui-primary)] transition-all">
-                <div class="grid grid-cols-12 gap-4">
-                    <div class="col-span-6">
+                <div class="grid grid-cols-12 gap-6">
+                    <div class="lg:col-span-6 col-span-12 lg:-ml-6 lg:-mt-6 lg:-mb-6">
+                        <NuxtImg
+                            src="https://pagedone.io/asset/uploads/1696488602.png"
+                            alt="Contact Us"
+                            class="h-full w-full object-cover lg:rounded-l-lg rounded-lg lg:max-h-full max-h-[540px] object-bottom"
+                        />
+                    </div>
+
+                    <div class="lg:col-span-6 col-span-12">
                         <div class="space-y-3 mb-4">
                             <h2 class="font-semibold text-2xl">Contact Me</h2>
                             <p>"I’m always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out!"</p>
@@ -100,14 +113,6 @@ const information = [
                                 </div>
                             </div>
                         </UForm>
-                    </div>
-
-                    <div class="col-span-6 -mr-6 -mt-6 -mb-6">
-                        <NuxtImg
-                            src="https://pagedone.io/asset/uploads/1696488602.png"
-                            alt="Contact Us"
-                            class="h-full w-full object-cover rounded-r-lg"
-                        />
                     </div>
                 </div>
             </UCard>

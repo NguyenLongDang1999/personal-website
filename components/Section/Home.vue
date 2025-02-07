@@ -1,5 +1,5 @@
-    <template>
-        <section class="bg-[url(/bg-image.webp)] bg-center bg-cover bg-no-repeat flex h-screen" id="home">
+<template>
+    <section class="bg-[url(/bg-image.webp)] bg-center bg-cover bg-no-repeat flex h-screen" id="home">
         <UContainer>
             <div class="flex flex-col justify-center items-center gap-4 h-full text-center">
                 <span class="uppercase mb-2 font-bold text-xl">Hello 👋</span>
@@ -14,7 +14,6 @@
                 </p>
 
                 <UButton
-                    :to="{ hash: ROUTE_HASH.CONTACT }"
                     size="xl"
                     class="mt-4"
                     variant="outline"

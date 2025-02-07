@@ -96,7 +96,12 @@ const skills = [
 </script>
 
 <template>
-    <section class="flex w-full items-center md:h-screen" id="skills">
+    <section class="flex flex-col py-24 bg-neutral-50" id="skills">
+        <BaseTitle
+            title="Skills"
+            subtitle="What I Do Best"
+        />
+
         <UContainer class="w-full">
             <div class="grid grid-cols-12 gap-4">
                 <div

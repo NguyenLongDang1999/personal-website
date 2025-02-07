@@ -1,12 +1,9 @@
 <template>
     <section class="flex flex-col py-24 bg-neutral-50" id="about">
-        <div class="relative flex items-center text-center mb-16">
-            <h2 class="text-9xl text-neutral-900 opacity-5 uppercase font-bold w-full mb-0">About Me</h2>
-            <p class="text-4xl text-dark font-bold absolute w-full align-self-center leading-tight mb-0">
-                Know Me More
-                <span class="w-20 border-b-3 border-[var(--ui-primary)] block mx-auto"></span>
-            </p>
-        </div>
+        <BaseTitle
+            title="About Me"
+            subtitle="Know Me More"
+        />
 
         <UContainer>
             <div class="flex flex-wrap justify-center items-start">
