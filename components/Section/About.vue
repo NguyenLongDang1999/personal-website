@@ -6,20 +6,20 @@
         />
 
         <UContainer>
-            <div class="flex flex-wrap justify-center items-start">
-                <div class="lg:w-1/2 w-full flex justify-center">
+            <div class="grid grid-cols-12 gap-6">
+                <div class="lg:col-span-6 col-span-12 flex justify-center items-center">
                     <NuxtImg
                         src="https://placehold.co/800x800/EEE/31343C"
                         :alt="config.fullname"
-                        class="max-w-lg max-h-lg"
+                        class="max-w-lg max-h-lg object-cover rounded-xl"
                     />
                 </div>
 
-                <div class="lg:w-1/2 w-full">
-                        <p class="leading-7 text-pretty">
-                            I am passionate about building high-performance web applications that enhance user experience.
-                            With a strong foundation in front-end and back-end technologies, I love turning ideas into reality through clean and efficient code.
-                        </p>
+                <div class="lg:col-span-6 col-span-12">
+                    <p class="leading-7 text-pretty">
+                        I am passionate about building high-performance web applications that enhance user experience.
+                        With a strong foundation in front-end and back-end technologies, I love turning ideas into reality through clean and efficient code.
+                    </p>
 
                     <div class="mt-4">
                         <h3 class="text-xl text-[var(--ui-text-highlighted)] font-semibold mb-3">Why I Love Coding</h3>
