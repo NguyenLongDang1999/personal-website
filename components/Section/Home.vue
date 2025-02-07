@@ -19,7 +19,7 @@ const scrollToSection = (hash: string) => {
 </script>
 
 <template>
-    <section class="bg-[url(/bg-image.webp)] bg-center bg-cover bg-no-repeat flex h-screen" id="home">
+    <section class="bg-[url(/bg-image.webp)] bg-center bg-cover bg-no-repeat flex h-screen relative" id="home">
         <UContainer>
             <div class="flex flex-col justify-center items-center gap-4 h-full text-center">
                 <span class="uppercase mb-2 font-bold text-xl">Hello 👋</span>
@@ -41,6 +41,14 @@ const scrollToSection = (hash: string) => {
                 >
                     Hire Me
                 </UButton>
+            </div>
+
+            <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <UIcon
+                    class="size-7 cursor-pointer"
+                    name="i-lucide-chevron-down"
+                    @click="scrollToSection(ROUTE_HASH.ABOUT)"
+                />
             </div>
         </UContainer>
     </section>
