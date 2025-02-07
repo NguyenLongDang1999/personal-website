@@ -19,7 +19,15 @@ const information = [
     }
 ]
 
-const state = reactive<Partial<IContactForm>>({})
+const defaultState: IContactForm = {
+    name: '',
+    phone: '',
+    email: '',
+    subject: '',
+    message: ''
+}
+
+const state = reactive<Partial<IContactForm>>(defaultState)
 
 // ** useHooks
 const mail = useMail()
@@ -49,6 +57,8 @@ Please respond to the user as soon as possible.
 Best regards
             `,
         })
+        
+        Object.assign(state, { ...defaultState })
     }
     catch {}
     finally {}
@@ -88,76 +98,78 @@ Best regards
                         <NuxtImg
                             src="https://pagedone.io/asset/uploads/1696488602.png"
                             alt="Contact Us"
-                            class="h-full w-full object-cover lg:rounded-l-lg rounded-lg lg:max-h-full max-h-[540px] object-bottom"
+                            class="lg:max-h-[600px] h-full w-full object-cover lg:rounded-l-lg rounded-lg lg:max-h-full max-h-[600px] object-bottom"
                         />
                     </div>
 
                     <div class="lg:col-span-6 col-span-12">
-                        <div class="space-y-3 mb-4">
-                            <h2 class="font-semibold text-2xl">Contact Me</h2>
-                            <p>"I’m always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out!"</p>
-                        </div>
-
-                        <UForm
-                            :schema="contactFormSchema"
-                            :state="state"
-                            @submit="onSubmit"
-                        >
-                            <div class="grid grid-cols-12 gap-4">
-                                <div class="col-span-12">
-                                    <FormInput
-                                        v-model="state.name"
-                                        :label="contactLabel.name"
-                                        name="name"
-                                    />
-                                </div>
-
-                                <div class="col-span-12">
-                                    <FormInput
-                                        v-model="state.phone"
-                                        :label="contactLabel.phone"
-                                        name="phone"
-                                    />
-                                </div>
-
-                                <div class="col-span-12">
-                                    <FormInput
-                                        v-model="state.email"
-                                        :label="contactLabel.email"
-                                        name="email"
-                                    />
-                                </div>
-
-                                <div class="col-span-12">
-                                    <FormInput
-                                        v-model="state.subject"
-                                        :label="contactLabel.subject"
-                                        name="subject"
-                                    />
-                                </div>
-
-                                <div class="col-span-12">
-                                    <FormTextarea
-                                        v-model="state.message"
-                                        :label="contactLabel.message"
-                                        :rows="5"
-                                        name="message"
-                                    />
-                                </div>
-
-                                <div class="col-span-12">
-                                    <UButton
-                                        type="submit"
-                                        size="lg"
-                                        icon="i-lucide-send"
-                                        loading-auto
-                                    >
-                                        Send
-                                    </UButton>
-
-                                </div>
+                        <div class="flex flex-col justify-center h-full">
+                            <div class="space-y-3 mb-4">
+                                <h2 class="font-semibold text-2xl">Contact Me</h2>
+                                <p>"I’m always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out!"</p>
                             </div>
-                        </UForm>
+
+                            <UForm
+                                :schema="contactFormSchema"
+                                :state="state"
+                                @submit="onSubmit"
+                            >
+                                <div class="grid grid-cols-12 gap-4">
+                                    <div class="col-span-6">
+                                        <FormInput
+                                            v-model="state.name"
+                                            :label="contactLabel.name"
+                                            name="name"
+                                        />
+                                    </div>
+
+                                    <div class="col-span-6">
+                                        <FormInput
+                                            v-model="state.phone"
+                                            :label="contactLabel.phone"
+                                            name="phone"
+                                        />
+                                    </div>
+
+                                    <div class="col-span-6">
+                                        <FormInput
+                                            v-model="state.email"
+                                            :label="contactLabel.email"
+                                            name="email"
+                                        />
+                                    </div>
+
+                                    <div class="col-span-6">
+                                        <FormInput
+                                            v-model="state.subject"
+                                            :label="contactLabel.subject"
+                                            name="subject"
+                                        />
+                                    </div>
+
+                                    <div class="col-span-12">
+                                        <FormTextarea
+                                            v-model="state.message"
+                                            :label="contactLabel.message"
+                                            :rows="5"
+                                            name="message"
+                                        />
+                                    </div>
+
+                                    <div class="col-span-12">
+                                        <UButton
+                                            type="submit"
+                                            size="lg"
+                                            icon="i-lucide-send"
+                                            loading-auto
+                                        >
+                                            Send
+                                        </UButton>
+
+                                    </div>
+                                </div>
+                            </UForm>
+                        </div>
                     </div>
                 </div>
             </UCard>
