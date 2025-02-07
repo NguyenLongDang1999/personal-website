@@ -1,15 +1,16 @@
 <template>
     <section class="flex h-screen" id="about">
         <UContainer class="flex items-center">
-            <div class="flex justify-center items-center">
-                <div class="w-1/2 flex justify-center">
+            <div class="flex flex-wrap justify-center items-center">
+                <div class="lg:w-1/2 w-full flex justify-center">
                     <NuxtImg
                         src="https://placehold.co/800x800/EEE/31343C"
                         :alt="config.fullname"
+                        class="max-w-lg max-h-lg"
                     />
                 </div>
 
-                <div class="w-1/2">
+                <div class="lg:w-1/2 w-full">
                     <div class="mt-4">
                         <h3 class="text-xl text-[var(--ui-text-highlighted)] font-semibold mb-3">About Me</h3>
                         <p class="leading-7 text-pretty">
