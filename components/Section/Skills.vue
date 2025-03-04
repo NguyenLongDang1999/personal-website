@@ -109,12 +109,12 @@ const skills = [
                     :key="skill.title"
                     class="lg:col-span-2 md:col-span-3 sm:col-span-4 col-span-6"
                 >
-                    <UCard class="group hover:ring hover:ring-[var(--ui-primary)] transition-all">
-                        <NuxtLink
-                            :to="skill.to"
-                            class="font-semibold group-hover:text-[var(--ui-primary)]"
-                            target="_blank"
-                        >
+                    <NuxtLink
+                        :to="skill.to"
+                        target="_blank"
+                        class="group"
+                    >
+                        <UCard class="font-semibold group-hover:text-[var(--ui-primary)] group-hover:ring group-hover:ring-[var(--ui-primary)] transition-all">
                             <component
                                 :is="skill.component"
                                 class="w-full h-16"
@@ -123,8 +123,8 @@ const skills = [
                             <div class="mt-3">
                                 <h3 class="text-center">{{ skill.title }}</h3>
                             </div>
-                        </NuxtLink>
-                    </UCard>
+                        </UCard>
+                    </NuxtLink>
                 </div>
             </div>
         </UContainer>
