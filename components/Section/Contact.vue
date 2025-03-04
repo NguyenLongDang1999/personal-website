@@ -27,10 +27,11 @@ const defaultState: IContactForm = {
     message: ''
 }
 
-const state = reactive<Partial<IContactForm>>(defaultState)
+const state = reactive<Partial<IContactForm>>({ ...defaultState })
 
 // ** useHooks
 const mail = useMail()
+const toast = useToast()
 
 // ** Methods
 const onSubmit = async () => {
@@ -58,7 +59,13 @@ Best regards
             `,
         })
         
-        Object.assign(state, { ...defaultState })
+        Object.assign(state, defaultState)
+
+        toast.add({
+            title: 'Success.',
+            description: 'Send mail sucessfully!',
+            icon: 'i-lucide-circle-check-big',
+        })
     }
     catch {}
     finally {}

@@ -35,7 +35,7 @@ const scrollToSection = (hash: string) => {
 
                 <UButton
                     size="xl"
-                    class="mt-4"
+                    class="mt-4 cursor-pointer"
                     variant="outline"
                     @click="scrollToSection(ROUTE_HASH.CONTACT)"
                 >

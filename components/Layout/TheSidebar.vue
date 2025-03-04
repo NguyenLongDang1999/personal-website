@@ -109,7 +109,7 @@ const scrollToSection = (hash: string) => {
                         :label="nav.title"
                         :ui="{
                             label:`font-bold ${activeSection === nav.to ? 'text-[var(--ui-bg)]' : 'text-[var(--ui-text)]'}`,
-                            base: 'justify-start'
+                            base: 'justify-start cursor-pointer'
                         }"
                         :variant="activeSection === nav.to ? 'solid' : 'ghost'"
                         size="xl"
