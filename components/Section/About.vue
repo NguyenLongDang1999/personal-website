@@ -11,7 +11,7 @@
                     <NuxtImg
                         src="https://placehold.co/800x800/EEE/31343C"
                         :alt="config.fullname"
-                        class="max-w-lg max-h-lg object-cover rounded-xl"
+                        class="max-w-lg max-h-lg object-cover rounded-xl w-full"
                     />
                 </div>
 
